@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<project>
+  <target name="dita2md-html5-mermaidjs"
+       depends="dita2md-html5-mermaidjs.init,
+                dita2html5"/>
+  <target name="dita2md-html5-mermaidjs.init">
+    <property name="args.ftr"
+          location="${dita.plugin.com.drewzhao.md-html5-mermaidjs.dir}/include/javascript.ftr.xml"/>
+  </target>
+</project>
