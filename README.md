@@ -12,6 +12,9 @@ If your markdown input contains fenced codeblock with language set to `mermaid`,
 2. Remove the nested `code` tags inside `pre` when converting markdown mermaid codeblocks to html5, otherwise mermaidjs will raise an error.
 3. Override the default `language-mermaid` class with `mermaid`, saving you the effort to set `querySelector` in javascript with [mermaid.run](https://mermaid.js.org/config/usage.html#using-mermaid-run).
 
+> [!NOTE]
+> If you are looking for using mermaidjs in dta xml, go to https://github.com/oxygenxml/dita-ot-diagrams-plugin .
+
 ## Installation
 
 The DITA OT plugin folder **com.drewzhao.md-html5-mermaidjs** can be manually downloaded, copied to a DITA Open Toolkit **plugins** folder and then installed using the **dita --install** command line.
