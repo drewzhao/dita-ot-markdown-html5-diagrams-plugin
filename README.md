@@ -1,16 +1,16 @@
 # dita-ot-markdown-html5-diagrams-plugin
 
-DITA Open Toolkit plugin which allows publishing markdown Mermaid diagram blocks to HTML5.
+The DITA Open Toolkit plugin processes mermaid codeblocks in markdown for valid html5 `pre` elements that can be rendered online by MermaidJS.
 
 https://mermaid-js.github.io
 
-The plugin was tested and developed with DITA OT 4.3
+The plugin was tested and developed with DITA OT 4.3.
 
-If you set the markdown fenced codeblock language to mermaid:
+If your markdown input contains fenced codeblock with language set to `mermaid`, this plug does the following to the html5 transformation:
 
-1. the plugin will inject MermaidJS to html5 from CDN: `https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs`
-2. the plugin will remove the nested `code` tags inside `pre` when converting markdown mermaid codeblocks to html5, otherwise mermaidjs will raise an error.
-3. the plugin will override the default `language-mermaid` class with `mermaid`, saving you the effort to set `querySelector` in javascript with [mermaid.run](https://mermaid.js.org/config/usage.html#using-mermaid-run).
+1. Inject MermaidJS to html5 from CDN: `https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs`
+2. Remove the nested `code` tags inside `pre` when converting markdown mermaid codeblocks to html5, otherwise mermaidjs will raise an error.
+3. Override the default `language-mermaid` class with `mermaid`, saving you the effort to set `querySelector` in javascript with [mermaid.run](https://mermaid.js.org/config/usage.html#using-mermaid-run).
 
 ## Installation
 
@@ -18,11 +18,28 @@ The DITA OT plugin folder **com.drewzhao.md-html5-mermaidjs** can be manually do
 
 ## Usage
 
+The plugin is used to process mermaid codeblocks when using markdown as input for DITA Open Toolkit.
+
 The plugin adds a new transtype `md-html5-mermaidjs`:
 
 ```shell
 dita --input=/path/to/your.ditamap --format=md-html5-mermaidjs
 ```
+
+## Example
+
+Here a markdown fenced codeblock with language set to mermaid:
+
+~~~~markdown
+```mermaid
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+~~~~
 
 ## Security
 
